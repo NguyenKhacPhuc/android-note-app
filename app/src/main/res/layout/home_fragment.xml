@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/black">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:menu="@menu/home_sreen_app_bar"
+            android:background="@android:color/black"
+            app:titleTextColor="@android:color/white"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/nunito_extrabold"
+                android:text="@string/notes"
+                android:textColor="@android:color/white"
+                android:paddingTop="10dp"
+                android:textSize="24sp" />
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listNotes"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/noNotesLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/noNotesImage"
+            android:layout_width="350dp"
+            android:layout_height="286dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/rafiki" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/definite_dimen_12"
+            android:fontFamily="@font/nunito_light"
+            android:gravity="center"
+            android:text="@string/create_your_first_note"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="@dimen/definite_dimen_32"
+        android:layout_margin="16dp"
+        android:contentDescription="@string/todo"
+        app:fabSize="normal"
+        android:backgroundTint="@color/ALPHA_WHITE_80"
+        app:backgroundTint="@color/ALPHA_WHITE_80"
+        app:rippleColor="#1DE9B6"
+        android:elevation="6dp"
+        android:src="@drawable/baseline_add_24"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:menu="@menu/edit_screen_app_bar"
+        app:navigationIcon="?attr/homeAsUpIndicator" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
+        android:fillViewport="true"
+        android:theme="@style/Colorless"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <ImageView
+                android:id="@+id/imagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="TODO" />
+
+            <EditText
+                android:id="@+id/enterTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:textColorHint="@color/hint_text_color"
+                android:textColor="@android:color/white"
+                android:hint="@string/title"
+                android:textSize="32sp"
+                android:imeOptions="actionNext"
+                android:inputType="textMultiLine|textCapSentences"
+                android:paddingStart="24dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="24dp"
+                android:fontFamily="@font/nunito_extrabold"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <TextView
+                android:id="@+id/dateCreated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="24dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="24dp"
+                android:textColorHint="@color/hint_text_color"
+                android:paddingBottom="16dp"
+                android:textSize="16sp"
+                android:hint="Date goes here"
+                android:textAppearance="?attr/textAppearanceBody2"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <EditText
+                android:id="@+id/enterBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="@string/type_something"
+                android:textColorHint="@color/hint_text_color"
+                android:textSize="20sp"
+                android:fontFamily="@font/nunito"
+                android:inputType="textMultiLine|textCapSentences"
+                android:paddingStart="24dp"
+                android:paddingTop="16dp"
+                android:textColor="@color/hint_text_color"
+                android:paddingEnd="24dp"
+                android:textAppearance="?attr/textAppearanceBody1" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

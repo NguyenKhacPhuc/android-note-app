@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/get_started_fragment"
+    android:id="@+id/splash_nav_graph"
+    >
+
+    <fragment
+        android:id="@+id/get_started_fragment"
+        android:name="com.example.android.ui.HomeFragment"
+        tools:layout="@layout/home_fragment"
+        >
+        <action
+            android:id="@+id/actionGoToInfoFragment"
+            app:destination="@id/infoFragment" />
+        <action
+            android:id="@+id/actionGoToAddNoteFragment"
+            app:destination="@id/editFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            >
+        </action>
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+        <argument
+            android:name="createdDate"
+            app:argType="string" />
+        <argument
+            android:name="title"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="imageLink"
+            app:argType="string"
+            android:defaultValue=""/>
+        <argument
+            android:name="content"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+    <dialog
+        android:id="@+id/infoFragment"
+        android:name="com.example.android.ui.InfoFragment"
+        tools:layout="@layout/information_fragment" />
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.android.ui.EditFragment"
+        tools:layout="@layout/edit_fragment">
+        <action
+            android:id="@+id/actionGoToDeleteDialogFragment"
+            app:destination="@id/deleteDialogFragment" />
+        <action
+            android:id="@+id/actionGoToSuccessDialogFragment"
+            app:destination="@id/successDialogFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/deleteDialogFragment"
+        android:name="com.example.android.ui.DeleteDialogFragment"
+        tools:layout="@layout/option_dialog">
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+        <action
+            android:id="@+id/actionGoToHomeFragment"
+            app:destination="@id/get_started_fragment"
+            app:popUpTo="@+id/get_started_fragment"
+            app:launchSingleTop="true"
+            app:popUpToInclusive="true"/>
+    </dialog>
+    <dialog
+        android:id="@+id/successDialogFragment"
+        android:name="com.example.android.ui.SuccessDialogFragment"/>
+</navigation>

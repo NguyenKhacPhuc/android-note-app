@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="@drawable/rounded_corners"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/definite_dimen_12"
+        android:layout_marginTop="@dimen/definite_dimen_16"
+        android:src="@drawable/baseline_warning_24"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete note ?"
+        android:fontFamily="@font/nunito_sans"
+        android:layout_marginStart="@dimen/definite_dimen_12"
+        android:layout_marginTop="@dimen/definite_dimen_12"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:textSize="26sp"
+        android:textColor="#FFFFFF"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/definite_dimen_32"
+        android:layout_marginTop="@dimen/definite_dimen_32">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/deleteButton"
+            android:layout_width="82dp"
+            android:background="@drawable/delete_button_style"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:layout_marginStart="@dimen/definite_dimen_12"
+            android:textColor="@android:color/white"
+            android:text="Delete" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/discardButton"
+            android:layout_width="82dp"
+            android:background="@drawable/discard_button_style"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nunito"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:layout_marginStart="82dp"
+            android:textColor="@android:color/white"
+            android:text="Discard"/>
+    </LinearLayout>
+
+</LinearLayout>

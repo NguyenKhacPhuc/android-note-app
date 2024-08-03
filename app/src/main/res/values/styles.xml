@@ -1,0 +1,26 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="DialogInforTheme">
+<!--        <item name="android:windowBackground">@android:color/transparent</item>-->
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <style name="EditScreenTextInputLayoutStyle" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/textInputLayout</item>
+        <item name="colorControlActivated">@color/textInputLayout</item>
+        <item name="colorControlHighlight">@color/textInputLayout</item>
+        <item name="colorAccent">@color/textInputLayout</item>
+        <item name="android:textColorHint">@color/textInputLayout</item>
+    </style>
+    <style name="DialogLoadingTheme">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+    <style name="Colorless" parent="ThemeOverlay.MaterialComponents">
+        <item name="colorSecondary">?attr/colorOnSurface</item>
+    </style>
+</resources>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/infoLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/rounded_corners"
+    android:layout_gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Designed by Divya"
+            android:fontFamily="@font/nunito_sans"
+            android:layout_marginStart="@dimen/definite_dimen_12"
+            android:layout_marginTop="@dimen/definite_dimen_16"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Implementation by Phuc"
+            android:fontFamily="@font/nunito_sans"
+            android:layout_marginStart="@dimen/definite_dimen_12"
+            android:layout_marginTop="@dimen/definite_dimen_12"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Icon by Free Source"
+            android:fontFamily="@font/nunito_sans"
+            android:layout_marginStart="@dimen/definite_dimen_12"
+            android:layout_marginTop="@dimen/definite_dimen_12"
+            android:textSize="14sp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/definite_dimen_12"
+            android:layout_marginTop="@dimen/definite_dimen_12"
+            android:fontFamily="@font/nunito_sans"
+            android:text="Font by Free Source"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/definite_dimen_12"
+            android:layout_marginBottom="@dimen/definite_dimen_16"
+            android:fontFamily="@font/nunito_semibold"
+            android:gravity="center"
+            android:text="Made by Steve Nguyen Khac Phuc"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp" />
+    </LinearLayout>

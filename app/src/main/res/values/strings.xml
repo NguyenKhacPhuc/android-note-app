@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Noty</string>
+    <string name="search_note">Search Note</string>
+    <string name="more">More</string>
+    <string name="notes">Notes\n</string>
+    <string name="create_your_first_note">Create your first note !</string>
+    <string name="todo">TODO</string>
+    <string name="title">Title</string>
+    <string name="date">Date Created\n</string>
+    <string name="note">Note</string>
+    <string name="save_note">Save Note</string>
+    <string name="type_something">Type Something...</string>
+    <string name="delete_note">Delet Note\n</string>
+    <string name="search">Search</string>
+    <string name="search_hint">Search For Your Notes</string>
+</resources>

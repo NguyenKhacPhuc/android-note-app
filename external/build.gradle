@@ -1,0 +1,83 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:8.4.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
+        classpath "com.google.devtools.ksp:symbol-processing-gradle-plugin:1.9.0-1.0.13" // Add this line
+    }
+}
+
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+//    id 'com.google.devtools.ksp' version '1.9.0-1.0.13' // Ensure the correct version is specified
+}
+
+android {
+    namespace 'com.example.external'
+    compileSdkVersion buildConfig.compileSdk
+    defaultConfig {
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+        }
+    }
+
+//    ksp {
+//        arg("room.generateKotlin", "true")
+//        arg("room.schemaLocation", "$projectDir/schemas")
+//    }
+    kotlinOptions{
+        jvmTarget = '17' // Or '17' if you prefer
+    }
+    java {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation deps.kotlin.stdlib.jdk8
+    implementation deps.androidx.core
+    implementation deps.kotlin.coroutines.jdk8
+    implementation deps.dagger.android
+    implementation deps.dagger.androidSupport
+    implementation deps.retrofit.rx
+    implementation deps.okhttp.client
+    implementation deps.okhttp.logging
+    implementation project(':domain')
+    api deps.retrofit.client
+    implementation deps.retrofit.gson
+    api deps.google.gson
+
+    testImplementation deps.junit
+    kapt deps.dagger.compiler
+    kapt deps.dagger.androidProcessor
+    def room_version = "2.5.0"
+
+    compileOnly "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    compileOnly "androidx.room:room-rxjava2:$room_version"
+    // To use Kotlin annotation processing tool (kapt)
+    kapt "androidx.room:room-compiler:$room_version"
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
