@@ -100,15 +100,12 @@ dependencies {
     androidTestImplementation deps.androidx.test.rules
 
     implementation deps.androidx.core
-    implementation deps.androidx.legacy.v4
     implementation deps.androidx.appCompat
     implementation deps.androidx.lifecycle.extensions
     implementation deps.androidx.lifecycle.java8
     implementation deps.androidx.lifecycle.livedata
     implementation deps.androidx.lifecycle.viewmodel
     implementation deps.androidx.constraintLayout
-    implementation deps.androidx.browser
-    implementation deps.androidx.viewpager2
     implementation deps.androidx.navigation.fragment
     implementation deps.androidx.navigation.ui
 
