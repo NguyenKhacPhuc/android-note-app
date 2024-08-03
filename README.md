@@ -1,7 +1,7 @@
 # **Technical documentation for project (Android)**
 
 ## **Overview**
-
+Simple Note App follow modular architecture, clean architecture, and MVVM architecture. The project is written in `Kotlin` language and uses `Dagger 2` for dependency injection.
 ## **Architecture**
 The project will make use of Clean Architecture to fully support S.O.L.I.D principles.
 Clean architecture stands for a group of practices that produce systems that are:
@@ -17,7 +17,7 @@ The purpose is the separation of concerns by keeping the business rules not know
 To achieve this, breaking up the project into 3 different layers, in which each one has its own purpose and works separately from the others. It is worth mentioning that each layer uses its own data model so this independence can be reached.
 
 #### **Architecture Considerations** (If needed)
-The application is written in  `Kotlin` language and we will be using `MVVM` over `MVP` in the `App` layer of the application.
+The application is written in  `Kotlin` language and will be using `MVVM` in the App layer
 
 
 #### **Architecture Design** (If needed)
@@ -26,12 +26,6 @@ The application is written in  `Kotlin` language and we will be using `MVVM` ove
 
 ## **Dependency Management**
 For Dependency Management we are using `Dagger 2` along with `Android's` native `Binding Library`
-
-## **Libraries**
-
-## **Build and Distrubution**
-
-## **Version**
 
 ## **References**
 > Clean Architecture
@@ -46,4 +40,9 @@ For Dependency Management we are using `Dagger 2` along with `Android's` native 
 #### **Simple Note Application**
 ## **Version**
 JDK: 17
-Author: [Steve Nguyen Khac Phuc]
+#### **Author**
+Steve Nguyen Khac Phuc
+
+## **Screen Cap**
+![alt text](home.png "Home Screen")
+![alt text](note.png "New Note Screen")
