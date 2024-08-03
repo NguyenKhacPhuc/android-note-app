@@ -21,8 +21,8 @@ import com.example.domain.entity.NoteDomain
 import kotlinx.coroutines.launch
 
 class EditFragment : BaseFragment<NoteViewModel, EditFragmentBinding>() {
-    private val noteId: Int by lazy {
-        requireArguments().getInt(ID_KEY)
+    private val noteId: Int? by lazy {
+        arguments?.getInt(ID_KEY)
     }
     private val noteTitle: String by lazy {
         arguments?.getString(TITLE_KEY) ?: ""
@@ -41,7 +41,7 @@ class EditFragment : BaseFragment<NoteViewModel, EditFragmentBinding>() {
     }
 
     private val hexColor: String by lazy {
-        arguments?.getString(HEX_COLOR) ?: ""
+        arguments?.getString(HEX_COLOR) ?: viewModel.getRandomHexColor()
     }
 
     companion object {
@@ -83,6 +83,20 @@ class EditFragment : BaseFragment<NoteViewModel, EditFragmentBinding>() {
 
                     R.id.save -> {
                         showSavedDialog()
+                        val noteDomain = NoteDomain(
+                            id = noteId ?: 0,
+                            title = binding.enterTitle.text.toString(),
+                            content = binding.enterBody.text.toString(),
+                            imageLink = noteImageLink,
+                            createdDate = binding.dateCreated.text.toString(),
+                            hexColor = hexColor
+                        )
+                        noteId?.let {
+                            viewModel.updateNote(noteDomain)
+
+                        } ?: run {
+                            viewModel.insertNote(noteDomain)
+                        }
                         true
                     }
 
@@ -94,16 +108,6 @@ class EditFragment : BaseFragment<NoteViewModel, EditFragmentBinding>() {
 
     private fun showSavedDialog() {
         navController.navigateSafe(R.id.actionGoToSuccessDialogFragment)
-        viewModel.insertNote(
-            NoteDomain(
-                id = noteId,
-                title = binding.enterTitle.text.toString(),
-                content = binding.enterBody.text.toString(),
-                imageLink = noteImageLink,
-                createdDate = binding.dateCreated.text.toString(),
-                hexColor = hexColor
-            )
-        )
     }
 
     private fun showDeleteDialog() {

@@ -8,6 +8,7 @@ import com.example.domain.usecases.DeleteNoteUseCase
 import com.example.domain.usecases.GetAllNoteUseCase
 import com.example.domain.usecases.InsertBuiltInNotesUseCase
 import com.example.domain.usecases.InsertNoteUseCase
+import com.example.domain.usecases.UpdateNoteUseCase
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.random.Random
@@ -19,7 +20,8 @@ class NoteViewModel @Inject constructor(
     private val getAllNoteUseCase: GetAllNoteUseCase,
     private val insertBuiltInNotesUseCase: InsertBuiltInNotesUseCase,
     private val insertNoteUseCase: InsertNoteUseCase,
-    private val deleteNoteUseCase: DeleteNoteUseCase
+    private val deleteNoteUseCase: DeleteNoteUseCase,
+    private val updateNoteUseCase: UpdateNoteUseCase
 ) :
     BaseViewModel() {
 
@@ -38,6 +40,12 @@ class NoteViewModel @Inject constructor(
     fun insertNote(noteDomain: NoteDomain) {
         viewModelScope.launch {
             insertNoteUseCase.insertNote(noteDomain)
+        }
+    }
+
+    fun updateNote(noteDomain: NoteDomain) {
+        viewModelScope.launch {
+            updateNoteUseCase.updateNote(noteDomain)
         }
     }
 
@@ -79,7 +87,7 @@ class NoteViewModel @Inject constructor(
         return fakeNotes
     }
 
-    private fun getRandomHexColor(): String {
+    fun getRandomHexColor(): String {
         val chars = "0123456789ABCDEF"
         var color = "#"
         for (i in 1..6) {
