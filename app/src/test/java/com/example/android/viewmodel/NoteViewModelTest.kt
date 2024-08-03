@@ -5,7 +5,6 @@ import androidx.lifecycle.Observer
 import com.example.domain.entity.NoteDomain
 import com.example.domain.usecases.DeleteNoteUseCase
 import com.example.domain.usecases.GetAllNoteUseCase
-import com.example.domain.usecases.InsertBuiltInNotesUseCase
 import com.example.domain.usecases.InsertNoteUseCase
 import com.example.domain.usecases.UpdateNoteUseCase
 import io.mockk.clearAllMocks
@@ -34,7 +33,6 @@ class NoteViewModelTest {
 
     private lateinit var viewModel: NoteViewModel
     private val getAllNoteUseCase = mockk<GetAllNoteUseCase>(relaxed = true)
-    private val insertBuiltInNotesUseCase = mockk<InsertBuiltInNotesUseCase>(relaxed = true)
     private val insertNoteUseCase = mockk<InsertNoteUseCase>(relaxed = true)
     private val deleteNoteUseCase = mockk<DeleteNoteUseCase>(relaxed = true)
     private val updateNoteUseCase = mockk<UpdateNoteUseCase>(relaxed = true)
@@ -44,7 +42,6 @@ class NoteViewModelTest {
         Dispatchers.setMain(StandardTestDispatcher())
         viewModel = NoteViewModel(
             getAllNoteUseCase,
-            insertBuiltInNotesUseCase,
             insertNoteUseCase,
             deleteNoteUseCase,
             updateNoteUseCase

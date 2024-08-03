@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.domain.entity.NoteDomain
 import com.example.domain.usecases.DeleteNoteUseCase
 import com.example.domain.usecases.GetAllNoteUseCase
-import com.example.domain.usecases.InsertBuiltInNotesUseCase
 import com.example.domain.usecases.InsertNoteUseCase
 import com.example.domain.usecases.UpdateNoteUseCase
 import javax.inject.Inject
@@ -16,7 +15,6 @@ import kotlinx.coroutines.launch
 
 class NoteViewModel @Inject constructor(
     private val getAllNoteUseCase: GetAllNoteUseCase,
-    private val insertBuiltInNotesUseCase: InsertBuiltInNotesUseCase,
     private val insertNoteUseCase: InsertNoteUseCase,
     private val deleteNoteUseCase: DeleteNoteUseCase,
     private val updateNoteUseCase: UpdateNoteUseCase
