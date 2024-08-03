@@ -6,19 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.example.android.R
 import com.example.android.databinding.EditFragmentBinding
 import com.example.android.viewmodel.NoteViewModel
+import com.example.domain.entity.NoteDomain
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
-import com.bumptech.glide.request.target.Target
-import com.example.domain.entity.NoteDomain
-import kotlinx.coroutines.launch
 
 class EditFragment : BaseFragment<NoteViewModel, EditFragmentBinding>() {
     private val noteId: Int? by lazy {
@@ -77,22 +75,26 @@ class EditFragment : BaseFragment<NoteViewModel, EditFragmentBinding>() {
             setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.delete -> {
-                        showDeleteDialog()
+                        noteId?.let {
+                            showDeleteDialog()
+                        }
                         true
                     }
 
                     R.id.save -> {
                         showSavedDialog()
                         val noteDomain = NoteDomain(
-                            id = noteId ?: 0,
                             title = binding.enterTitle.text.toString(),
                             content = binding.enterBody.text.toString(),
                             imageLink = noteImageLink,
                             createdDate = binding.dateCreated.text.toString(),
                             hexColor = hexColor
                         )
+
                         noteId?.let {
-                            viewModel.updateNote(noteDomain)
+                            viewModel.updateNote(noteDomain.copy(
+                                id = it
+                            ))
 
                         } ?: run {
                             viewModel.insertNote(noteDomain)

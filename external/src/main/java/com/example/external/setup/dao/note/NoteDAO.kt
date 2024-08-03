@@ -9,14 +9,14 @@ import com.example.external.setup.entity.note.Note
 
 @Dao
 interface NoteDAO {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert
      fun insert(note: Note)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(note: List<Note>)
 
     @Update(entity = Note::class)
-     fun update(note: Note): Int
+    fun update(note: Note): Int
 
     @Query("DELETE FROM Note WHERE id = :id")
     fun delete(id: Int)

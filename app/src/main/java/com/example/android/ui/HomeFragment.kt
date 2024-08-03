@@ -56,6 +56,13 @@ class HomeFragment : BaseFragment<NoteViewModel, HomeFragmentBinding>() {
             }
             notesAdapter.submitList(it)
         }
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            if (it) {
+                (activity as? MainActivity)?.loading()
+            } else {
+                (activity as? MainActivity)?.dismiss()
+            }
+        }
     }
 
     private fun setUpListener() {

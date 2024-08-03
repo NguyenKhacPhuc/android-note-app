@@ -28,10 +28,16 @@ class NoteViewModel @Inject constructor(
     private val mutableListNote = MutableLiveData<List<NoteDomain>>()
     val listNote: LiveData<List<NoteDomain>>
         get() = mutableListNote
+    private val mutableIsLoading = MutableLiveData<Boolean>()
+    val isLoading : LiveData<Boolean>
+        get() = mutableIsLoading
 
     fun getAllNote() {
         viewModelScope.launch {
-            getAllNoteUseCase.getAllNoteUseCase().onStart { }.collect { notes ->
+            getAllNoteUseCase.getAllNoteUseCase().onStart {
+                mutableIsLoading.value = true
+            }.collect { notes ->
+                mutableIsLoading.value = false
                 mutableListNote.value = notes
             }
         }

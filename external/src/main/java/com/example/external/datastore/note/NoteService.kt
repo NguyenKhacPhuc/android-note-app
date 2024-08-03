@@ -42,12 +42,6 @@ class NoteService @Inject constructor(
     }
 
     private fun <R> onRoom(onRoom: () -> R): R {
-        try {
-            return onRoom.invoke()
-        } catch (throwable: Throwable) {
-            throw throwable
-        } finally {
-            roomDb.close()
-        }
+        return onRoom.invoke()
     }
 }

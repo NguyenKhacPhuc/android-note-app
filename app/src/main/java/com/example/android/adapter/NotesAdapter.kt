@@ -18,6 +18,7 @@ class NotesAdapter : ListAdapter<NoteDomain, NotesAdapter.NoteHolder>(NoteDiffCa
                 onNoteClick(note)
             }
             binding.title.text = note.title
+            binding.dateCreated.text = note.createdDate
             if (note.hexColor.isNotEmpty()) {
                 binding.root.setCardBackgroundColor(Color.parseColor(note.hexColor))
             }
