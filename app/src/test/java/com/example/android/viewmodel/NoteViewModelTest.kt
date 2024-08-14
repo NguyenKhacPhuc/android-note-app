@@ -21,6 +21,7 @@ import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.test.setMain
 import org.junit.After
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -66,11 +67,29 @@ class NoteViewModelTest {
         viewModel.listNote.observeForever(observer)
 
         viewModel.getAllNote()
-
         advanceUntilIdle()
 
-        coVerify { observer.onChanged(notes) }
-        assertEquals(notes, viewModel.listNote.value)
+        assertTrue(notes.reversed() == viewModel.listNote.value)
+    }
+
+    @Test
+    fun `test if notes have been change`() = runTest {
+        val notes = listOf(
+            NoteDomain(1, "Title1", "Content1", "2021-09-01", "#FFFFFF", "https://picsum.photos/200/300?random=1"),
+            NoteDomain(2, "Title2", "Content2", "2021-09-02", "#000000", "https://picsum.photos/200/300?random=2")
+        )
+        val unchangedList = listOf(
+            NoteDomain(1, "Title1", "Content1", "2021-09-01", "#FFFFFF", "https://picsum.photos/200/300?random=1"),
+            NoteDomain(2, "Title2", "Content2", "2021-09-02", "#000000", "https://picsum.photos/200/300?random=2")
+        )
+        coEvery { getAllNoteUseCase.getAllNoteUseCase() } returns flow { emit(notes) }
+
+        val observer = mockk<Observer<List<NoteDomain>>>(relaxed = true)
+        viewModel.listNote.observeForever(observer)
+
+        viewModel.getAllNote()
+        advanceUntilIdle()
+        coVerify { observer.onChanged(notes.reversed()) }
     }
 
     @Test
